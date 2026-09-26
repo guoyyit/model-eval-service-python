@@ -9,3 +9,24 @@ dependencies = [
 [[tool.uv.index]]
 url = "https://mirrors.aliyun.com/pypi/simple/"
 default = true
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "tests"]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 88
+
+[tool.ruff.lint]
+# B008: FastAPI Depends() in defaults is the standard injection pattern.
+# BLE001: broad exception capture is required for per-sample failure recording.
+ignore = ["B008", "BLE001"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["B011"]

@@ -7,3 +7,9 @@ __pycache__/
 dist/
 build/
 *.egg-info/
+
+# local service databases (SQLite + WAL sidecars)
+*.db
+*.db-wal
+*.db-shm
+eval.db*
